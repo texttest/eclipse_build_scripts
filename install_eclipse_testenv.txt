@@ -1,18 +1,20 @@
 How to install RCP/GEF test environment from scratch
 
-   1. Check out the build scripts from /carm/proj/texttest/bzr/eclipse_build_scripts	
-   2. Check out all eclipse test applications from /carm/proj/texttest/bzr/eclipse_applications and import them into your eclipse workspace
-   3. Select org.storytext.rcp.installation and open defaultInstallation.product file. Click on “Eclipse Product export wizard” from the overview tab at the bottom left.
+   1. Check out the build scripts from /carm/proj/texttest/bzr/eclipse_build_scripts
+   2. From StoryText check out import eclipse_rcp_plugin and eclipse_gef_rcp_plugin	into your workspace
+   3. Check out all eclipse test applications from /carm/proj/texttest/bzr/eclipse_applications and import them into your eclipse workspace
+   4. Select org.storytext.rcp.installation and open defaultInstallation.product file. Click on “Eclipse Product export wizard” from the overview tab at the bottom left.
     * In “Root directory” text field write “eclipse”
     * In destination directory click browse and point to /usr/local/tt-env/eclipse_test
     * Click finish
+    * Open the file /usr/local/tt-env/eclipse_test/eclipse/configuration/config.ini. Find the text "eclipse.product=org.storytext.rcp.installation.product"
+      and remove it.
     Repeat this step for the GEF product but change the “Root directory” text field to “eclipse_gef”
     Note that it is important to execute this step from a eclipse version that matchs the target eclipse version.
-    
-   4. Check out all rcp and gef applications from , and import them to your eclipse workspace
-   5. Open any plugin.xml file from an application and choose export wizard from the overview tab.
-   6. From the overview tab, select all applications and testscripts for rcp and gef . Choose a destination directory and click finish.
-   7. Cd to the build scripts directory
-   8. Run the script :
+
+   6. Open any plugin.xml file from an application and choose export wizard from the overview tab.
+   7. From the overview tab, select all applications and testscripts for rcp and gef . Choose a destination directory and click finish.
+   8. Cd to the build scripts directory
+   9. Run the script :
       make_testenv_rcp_gef.sh <eclipse version> <root of the installation> <artifact directory. (The destination directory in step 5)>
       I.e. make_testenv_rcp_gef.sh 3.7 /usr/local/tt-env /users/uname/artifacts
